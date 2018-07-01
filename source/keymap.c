@@ -24,7 +24,8 @@ enum custom_keycodes {
   M_PMAIL,
   M_WMAIL,
   M_RVAR,
-  M_RPIPE
+  M_RPIPE,
+  M_SA
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -59,6 +60,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 return false;break;
             case M_RPIPE:
                 SEND_STRING("%>%");
+                return false;break;
+            case M_SA:
+                SEND_STRING(SS_LCTRL(SS_LALT("s")));
                 return false;break;
         }
 
@@ -117,10 +121,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   /* Layer 1: Navigation x R
   *
   * ,--------------------------------------------------.           ,--------------------------------------------------.
-  * | M_lock |  F1  |  F2  |  F3  |  F4  |  F5  |M_RVAR|           |M_RPIPE|Accl 0|Accl 2|Accl 3|M_WMAIL|M_PMAIL|  =  |
+  * | M_lock |  F1  |  F2  |  F3  |  F4  |  F5  |M_RVAR|           | M_SA |Accl 0|Accl 2|Accl 3|M_WMAIL|M_PMAIL|  =  |
   * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
-  * | Tab    |M_CWIN|      | MsUP |M_ATAB|M_CTAB|      |           |  www |      |      | WhUp |   O  |      |   `    |
-  * |--------+------+------+------+------+------|      |           |  fwd |------+------+------+------+------+--------|
+  * | Tab    |M_CWIN|      | MsUP |M_ATAB|M_CTAB| M_R  |           |  www |      |      | WhUp |   O  |      |   `    |
+  * |--------+------+------+------+------+------| PIPE |           |  fwd |------+------+------+------+------+--------|
   * | Del    |   A  |MsLEFT|MsDOWN|MsRGHT|      |------|           |------|      | WhLft| WhDwn|WhRght|  \ | |   '    |
   * |--------+------+------+------+------+------|  L1  |           |  www |------+------+------+------+------+--------|
   * | LShift |   Z  |   X  |   C  |   V  |      |      |           |  bck |   N  |VolUp |VolDwn| MUTE |      |  ~ 2   |
@@ -138,7 +142,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [1] = KEYMAP(
     M_LOCK,KC_F1,KC_F2,KC_F3,KC_F4,KC_F5,M_RVAR,
-    KC_TAB,M_CWIN,KC_TRANSPARENT,KC_MS_UP,M_ATAB,M_CTAB,KC_TRANSPARENT,
+    KC_TAB,M_CWIN,KC_TRANSPARENT,KC_MS_UP,M_ATAB,M_CTAB,M_RPIPE,
     KC_DELETE,KC_A,KC_MS_LEFT,KC_MS_DOWN,KC_MS_RIGHT,KC_TRANSPARENT,
     KC_LSHIFT,KC_Z,KC_X,KC_C,KC_V,KC_TRANSPARENT,KC_TRANSPARENT,
 
@@ -148,7 +152,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
           KC_MS_BTN1,KC_BSPACE,KC_END,
 
 
-    M_RPIPE,KC_MS_ACCEL0,KC_MS_ACCEL1,KC_MS_ACCEL2,M_WMAIL,M_PMAIL,KC_EQUAL,
+    M_SA,KC_MS_ACCEL0,KC_MS_ACCEL1,KC_MS_ACCEL2,M_WMAIL,M_PMAIL,KC_EQUAL,
     KC_WWW_FORWARD,KC_TRANSPARENT,M_RPIPE,KC_MS_WH_UP,KC_O,KC_TRANSPARENT,KC_GRAVE,
     KC_TRANSPARENT,KC_MS_WH_LEFT,KC_MS_WH_DOWN,KC_MS_WH_RIGHT,KC_BSLASH,KC_QUOTE,
     KC_WWW_BACK,KC_N,KC_AUDIO_VOL_UP,KC_AUDIO_VOL_DOWN,KC_AUDIO_MUTE,KC_TRANSPARENT,MO(2),
