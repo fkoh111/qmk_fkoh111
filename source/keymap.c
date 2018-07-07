@@ -25,7 +25,8 @@
    M_WMAIL,
    M_RVAR,
    M_RPIPE,
-   M_SA
+   M_SA,
+   M_STAB
  };
  
  bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -63,6 +64,9 @@
                  return false;break;
              case M_SA:
                  SEND_STRING(SS_LCTRL(SS_LALT("s")));
+                 return false;break;
+             case M_STAB:
+                 SEND_STRING(SS_LCTRL(SS_TAP(X_TAB)));
                  return false;break;
          }
  
@@ -123,7 +127,7 @@
    * ,--------------------------------------------------.           ,--------------------------------------------------.
    * | M_lock |  F1  |  F2  |  F3  |  F4  |  F5  |M_RVAR|           | M_SA |Accl 0|Accl 2|Accl 3|M_WMAIL|M_PMAIL|  =  |
    * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
-   * | Tab    |M_CWIN|      | MsUP |M_ATAB|M_CTAB| M_R  |           |  www |      |      | WhUp |   O  |      |   `    |
+   * | Tab    |M_CWIN|      | MsUP |M_ATAB|M_CTAB| M_R  |           |  www |      |M_STAB| WhUp |   O  |      |   `    |
    * |--------+------+------+------+------+------| PIPE |           |  fwd |------+------+------+------+------+--------|
    * | Del    |   A  |MsLEFT|MsDOWN|MsRGHT|      |------|           |------|      | WhLft| WhDwn|WhRght|  \ | |   '    |
    * |--------+------+------+------+------+------|  L1  |           |  www |------+------+------+------+------+--------|
@@ -153,7 +157,7 @@
  
  
      M_SA,KC_MS_ACCEL0,KC_MS_ACCEL1,KC_MS_ACCEL2,M_WMAIL,M_PMAIL,KC_EQUAL,
-     KC_WWW_FORWARD,KC_TRANSPARENT,M_RPIPE,KC_MS_WH_UP,KC_O,KC_TRANSPARENT,KC_GRAVE,
+     KC_WWW_FORWARD,KC_TRANSPARENT,M_STAB,KC_MS_WH_UP,KC_O,KC_TRANSPARENT,KC_GRAVE,
      KC_TRANSPARENT,KC_MS_WH_LEFT,KC_MS_WH_DOWN,KC_MS_WH_RIGHT,KC_BSLASH,KC_QUOTE,
      KC_WWW_BACK,KC_N,KC_AUDIO_VOL_UP,KC_AUDIO_VOL_DOWN,KC_AUDIO_MUTE,KC_TRANSPARENT,MO(2),
  
