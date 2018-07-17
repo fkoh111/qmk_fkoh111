@@ -58,10 +58,10 @@
                  SEND_STRING("frederik.hansen@dentsuaegis.com");
                  return false;break;
              case M_RVAR:
-                 SEND_STRING(" <- ");
+                 SEND_STRING("<- ");
                  return false;break;
              case M_RPIPE:
-                 SEND_STRING(" %>% ");
+                 SEND_STRING("%>% ");
                  return false;break;
              case M_SA:
                  SEND_STRING(SS_LCTRL(SS_LALT("s")));
@@ -70,7 +70,7 @@
                  SEND_STRING(SS_LCTRL(SS_TAP(X_TAB)));
                  return false;break;
              case M_PTAB: /*FIX THIS ONE */
-                 SEND_STRING(SS_LCTRL(SS_TAP(X_TAB)));
+                 SEND_STRING(SS_LCTRL(SS_LSFT(SS_TAP(X_TAB))));
                  return false;break;
          }
 
@@ -131,7 +131,7 @@
    * ,--------------------------------------------------.           ,--------------------------------------------------.
    * | M_lock |  F1  |  F2  |  F3  |  F4  |  F5  |M_RVAR|           | M_SA |Accl 0|Accl 2|Accl 3|M_WMAIL|M_PMAIL|  =  |
    * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
-   * | Tab    |M_CWIN|      | MsUP |M_ATAB|M_CTAB| M_R  |           |  www |      |M_NTAB| WhUp |   O  |      |   `    |
+   * | Tab    |M_CWIN|      | MsUP |M_ATAB|M_CTAB| M_R  |           |  www |M_PTAB|M_NTAB| WhUp |   O  |      |   `    |
    * |--------+------+------+------+------+------| PIPE |           |  fwd |------+------+------+------+------+--------|
    * | Del    |   A  |MsLEFT|MsDOWN|MsRGHT|      |------|           |------|      | WhLft| WhDwn|WhRght|  \ | |   '    |
    * |--------+------+------+------+------+------|  L1  |           |  www |------+------+------+------+------+--------|
