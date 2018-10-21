@@ -131,9 +131,9 @@
    * ,--------------------------------------------------.           ,--------------------------------------------------.
    * | M_lock |  F1  |  F2  |  F3  |  F4  |  F5  |M_RVAR|           | M_SA |Accl 0|Accl 2|Accl 3|M_WMAIL|M_PMAIL|  =  |
    * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
-   * | Tab    |M_CWIN|      | MsUP |M_ATAB|M_CTAB| M_R  |           |  www |M_PTAB|M_NTAB| WhUp |   O  |      |   `    |
+   * | Tab    |M_CWIN|      | WhUp |M_ATAB|M_CTAB| M_R  |           |  www |M_PTAB|M_NTAB| MsUp |   O  |      |   `    |
    * |--------+------+------+------+------+------| PIPE |           |  fwd |------+------+------+------+------+--------|
-   * | Del    |   A  |MsLEFT|MsDOWN|MsRGHT|      |------|           |------|      | WhLft| WhDwn|WhRght|  \ | |   '    |
+   * | Del    |   A  |WhLFT |WhDwn |WhRGHT|      |------|           |------|      | MsLft|MsDwn |MsRght|  \ | |   '    |
    * |--------+------+------+------+------+------|  L1  |           |  www |------+------+------+------+------+--------|
    * | LShift |   Z  |   X  |   C  |   V  |      |      |           |  bck |   N  |VolUp |VolDwn| MUTE |      |  ~ 2   |
    * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
@@ -148,6 +148,8 @@
    *                                 `--------------------'       `---------------------'
    */
  
+
+/*
    [1] = KEYMAP(
      M_LOCK,KC_F1,KC_F2,KC_F3,KC_F4,KC_F5,M_RVAR,
      KC_TAB,M_CWIN,KC_TRANSPARENT,KC_MS_UP,M_ATAB,M_CTAB,M_RPIPE,
@@ -170,6 +172,32 @@
            KC_TRANSPARENT,KC_ESCAPE,KC_PGUP,
            KC_PGDOWN,KC_MS_BTN2,KC_ENTER),
  
+
+*/
+
+
+   [1] = KEYMAP(
+     M_LOCK,KC_F1,KC_F2,KC_F3,KC_F4,KC_F5,M_RVAR,
+     KC_TAB,M_CWIN,KC_TRANSPARENT,KC_MS_WH_UP,M_ATAB,M_CTAB,M_RPIPE,
+     KC_DELETE,KC_A,KC_MS_WH_LEFT,KC_MS_WH_DOWN,KC_MS_WH_RIGHT,KC_TRANSPARENT,
+     KC_LSHIFT,KC_Z,KC_X,KC_C,KC_V,KC_TRANSPARENT,KC_TRANSPARENT,
+ 
+     CTL_T(KC_NO),M_KLANG,ALGR_T(KC_NO),GUI_T(KC_NO),ALT_T(KC_NO),
+ 
+           KC_LBRACKET,KC_RBRACKET,KC_HOME,
+           KC_MS_BTN1,KC_BSPACE,KC_END,
+ 
+ 
+     M_SA,KC_MS_ACCEL0,KC_MS_ACCEL1,KC_MS_ACCEL2,M_WMAIL,M_PMAIL,KC_EQUAL,
+     KC_WWW_FORWARD,M_PTAB,M_NTAB,KC_MS_UP,KC_O,KC_TRANSPARENT,KC_GRAVE,
+     KC_TRANSPARENT,KC_MS_LEFT,KC_MS_DOWN,KC_MS_RIGHT,KC_BSLASH,KC_QUOTE,
+     KC_WWW_BACK,KC_N,KC_AUDIO_VOL_UP,KC_AUDIO_VOL_DOWN,KC_AUDIO_MUTE,KC_TRANSPARENT,MO(2),
+ 
+     KC_UP,KC_DOWN,KC_LEFT,KC_RIGHT,KC_SLASH,
+ 
+           KC_TRANSPARENT,KC_ESCAPE,KC_PGUP,
+           KC_PGDOWN,KC_MS_BTN2,KC_ENTER),
+
    /* Layer 2: F keys
    *
    * ,--------------------------------------------------.           ,--------------------------------------------------.
