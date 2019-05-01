@@ -2,7 +2,10 @@
  #include "debug.h"
  #include "action_layer.h"
  #include "version.h"
+ 
+ 
  #include "keymap_german.h"
+ 
  #include "keymap_nordic.h"
  
  
@@ -30,7 +33,7 @@
  bool process_record_user(uint16_t keycode, keyrecord_t *record) {
      if (record->event.pressed) {
          switch(keycode) {
-             case M_LOCK: /* Lock PC */
+             case M_LOCK:
                  SEND_STRING(SS_LGUI(SS_TAP(X_L)));
                  return false;break;
              case M_CTAB: /* Close tab */
@@ -45,28 +48,28 @@
              case M_NWIN: /* New window */
                  SEND_STRING(SS_LCTRL("n"));
                  return false;break;
-             case M_KLANG: /* Change keyboard language */
+             case M_KLANG:
                  SEND_STRING(SS_LGUI(SS_TAP(X_SPACE)));
                  return false;break;
-             case M_PMAIL: /* Private mail */
+             case M_PMAIL:
                  SEND_STRING("frederik_kok@icloud.com");
                  return false;break;
-             case M_WMAIL: /* Work mail */
-                 SEND_STRING("fzhdk@leo-pharma.com");
+             case M_WMAIL:
+                 SEND_STRING("frederik.hansen@dentsuaegis.com");
                  return false;break;
-             case M_RVAR: /* R Assign to var */
+             case M_RVAR:
                  SEND_STRING("<- ");
                  return false;break;
-             case M_RPIPE: /* R Magrittr pipe */
+             case M_RPIPE:
                  SEND_STRING("%>% ");
                  return false;break;
              case M_SA:
                  SEND_STRING(SS_LCTRL(SS_LALT("s")));
                  return false;break;
-             case M_NTAB: /* Switch tab */
+             case M_NTAB:
                  SEND_STRING(SS_LCTRL(SS_TAP(X_TAB)));
                  return false;break;
-             case M_PTAB: /* Switch tab */
+             case M_PTAB: /*FIX THIS ONE */
                  SEND_STRING(SS_LCTRL(SS_LSFT(SS_TAP(X_TAB))));
                  return false;break;
          }
