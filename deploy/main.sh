@@ -15,16 +15,17 @@ bin_dst=$path_to_qmk_fkoh111"/bin"
 
 git_dir=$path_to_qmk_fkoh111"/deploy"
 
+
 cd $src_dir
 for file in $src_ext; do
   cp $src_ext $src_dst;
 done
 
+
 cd $bin_dir
 for file in $bin_ext; do
   cp $bin_ext $bin_dst;
 done
-
 
 
 cd $git_dir
