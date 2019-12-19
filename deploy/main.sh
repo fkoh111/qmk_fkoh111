@@ -7,14 +7,13 @@ echo $path_to_scripts
 
 src_dir=$path_to_scripts"/qmk_firmware/keyboards/ergodox_ez/keymaps/fkoh111_default"
 src_ext="*.c"
-src_dst="/home/frederik/Documents/scripts/qmk_fkoh111/src"
+src_dst=$path_to_qmk_fkoh111"/src"
 
-bin_dir="/home/frederik/Documents/scripts/qmk_firmware"
+bin_dir=$path_to_scripts"/qmk_firmware"
 bin_ext="*.hex"
-bin_dst="/home/frederik/Documents/scripts/qmk_fkoh111/bin"
+bin_dst=$path_to_qmk_fkoh111"/bin"
 
-git_dir="/home/frederik/Documents/scripts/qmk_fkoh111/deploy"
-
+git_dir=$path_to_qmk_fkoh111"/deploy"
 
 cd $src_dir
 for file in $src_ext; do
