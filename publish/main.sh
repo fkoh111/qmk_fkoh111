@@ -13,6 +13,8 @@ bin_dst=$path_to_qmk_fkoh111"/bin"
 git_dir=$path_to_qmk_fkoh111"/publish"
 
 
+source build.sh
+
 cd $src_dir
 for file in $src_ext; do
   cp $src_ext $src_dst;
